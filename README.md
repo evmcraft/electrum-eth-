@@ -1,46 +1,68 @@
-# 🌐 Electrum ETH 4.5.5
+# Electrum ETH
 
-Electrum ETH is a lightweight wallet for the Ethereum cryptocurrency that provides a simple and secure way to manage your ETH. 💎 Electrum ETH is designed with reliability and convenience in mind, allowing users to access their funds without needing to download the entire blockchain. This makes it a fast and efficient solution for storing and sending Ethereum. ⚡
+![Python](https://img.shields.io/badge/python-3.8%2B-3776AB?style=flat-square&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-2B2B2B?style=flat-square)
+![Type](https://img.shields.io/badge/type-ElectrumX%20server-4B5563?style=flat-square)
 
+## Overview
 
+Electrum ETH is a Python-based ElectrumX server implementation. It indexes blockchain data and exposes Electrum protocol services for lightweight clients.
 
-## ✨ Features
+## Capabilities
 
-✨ **Lightweight and Fast**: Electrum ETH uses SPV (Simplified Payment Verification), allowing quick connectivity to the Ethereum network without syncing the entire blockchain.
+- Asynchronous Electrum protocol server
+- Blockchain indexing and transaction history lookup
+- Mempool tracking
+- Configurable TCP, SSL, WS, and WSS services
+- Daemon failover via multiple RPC endpoints
+- LevelDB or RocksDB backend support
 
-🖱️ **User-Friendly**: An easy and intuitive interface makes the wallet accessible even for beginners.
+## Setup
 
-🔒 **Security First**: Your information and keys remain under your control. The wallet supports seed phrases for access recovery, ensuring your funds are kept safe.
+| Item | Value |
+| --- | --- |
+| Python | 3.8+ |
+| Base deps | `aiorpcX`, `attrs`, `plyvel`, `aiohttp` |
+| Install | `pip install -r requirements.txt` |
+| Package | `pip install .` |
 
-🔗 **Hardware Wallet Compatibility**: Electrum ETH supports popular hardware wallets, providing additional security for storing your assets.
+Required environment variables:
 
-🛡️ **Multi-Signature Support**: Enhanced security through the use of multi-signature transactions.
+- `COIN`
+- `DB_DIRECTORY`
+- `DAEMON_URL`
+- `SERVICES`
 
-🚀 **Quick Access and Lightweight**: No need to wait for long syncs. Electrum ETH lets you start transacting immediately, leveraging SPV technology.
+Example:
 
-🤝 **Open Source**: Electrum ETH is open source, meaning the community can contribute, verify the code, and trust the wallet's transparency.
+```bash
+export COIN=Bitcoin
+export DB_DIRECTORY=/var/lib/electrumx
+export DAEMON_URL=http://user:pass@127.0.0.1:8332/
+export SERVICES=tcp://0.0.0.0:50001
+```
 
-## 📥 Download Links
+## Usage
 
-You can download Electrum ETH 4.5.5 for your operating system using the following links:
+Start the server:
 
-- **Linux**: [Download AppImage](https://github.com/Electrum-Ethereum/electrum-eth/releases/download/v4.5.5/Linux-electrum-eth.AppImage)
-- **Windows**: [Download EXE](https://github.com/Electrum-Ethereum/electrum-eth/releases/download/v4.5.5/Windows-electrum-eth.exe)
-- **MacOS**: [Download DMG](https://github.com/Electrum-Ethereum/electrum-eth/releases/download/v4.5.5/MacOS-electrum-eth.dmg)
+```bash
+electrumx_server
+```
 
-## 🛠️ Installation
+Useful commands:
 
-1. Download the appropriate file for your operating system using the links above.
-2. Run the installer and follow the on-screen instructions.
-3. Upon first launch, you will be prompted to create a new wallet or restore an existing one using a seed phrase.
+- `electrumx_rpc`
+- `electrumx_compact_history`
 
-## 📜 License
+## Technical Notes
 
-This project is distributed under the MIT License. You can find the full text of the license [here](https://github.com/Electrum-Ethereum/electrum-eth/blob/master/LICENCE).
+- Package name: `e-x`
+- Version in source: `1.16.0`
+- Main package: `electrumx/`
+- Docs: `docs/`
+- Test suite: `tests/`
 
-📚 **Documentation**: Visit our [Wiki](https://github.com/Electrum-Ethereum/electrum-eth/wiki) for detailed guides, FAQs, and troubleshooting tips.
+## License
 
-## 📞 Contact
-
-- Support: You can reach the team through GitHub Issues for questions and bug reports.
-
+MIT. See `LICENCE`.
