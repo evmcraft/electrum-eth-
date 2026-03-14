@@ -40,11 +40,13 @@ Python service for blockchain indexing, mempool tracking, and Electrum-compatibl
 Required environment:
 
 ```bash
-export COIN=Bitcoin
+export COIN=<coin-class-name>
 export DB_DIRECTORY=/var/lib/electrumx
-export DAEMON_URL=http://user:pass@127.0.0.1:8332/
+export DAEMON_URL=http://user:pass@127.0.0.1:<node-rpc-port>/
 export SERVICES=tcp://0.0.0.0:50001
 ```
+
+`COIN` must match the configured coin class name exposed by your deployment.
 
 ## Operator Paths
 

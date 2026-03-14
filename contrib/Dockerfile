@@ -24,7 +24,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 ENV SERVICES="tcp://:50001"
-ENV COIN=Bitcoin
+ENV COIN=YourCoin
 ENV DB_DIRECTORY=/var/lib/electrumx
 ENV DAEMON_URL="http://username:password@hostname:port/"
 ENV ALLOW_ROOT=true
@@ -44,5 +44,5 @@ CMD ["/usr/src/app/venv/bin/python", "/usr/src/app/venv/bin/electrumx_server"]
 
 # build it with eg.: `docker build -t electrumx .`
 # run it with eg.:
-# `docker run -d --net=host -v /home/electrumx/db/:/var/lib/electrumx -e DAEMON_URL="http://youruser:yourpass@localhost:8332" -e REPORT_SERVICES=tcp://example.com:50001 electrumx`
+# `docker run -d --net=host -v /home/electrumx/db/:/var/lib/electrumx -e COIN=YourCoin -e DAEMON_URL="http://youruser:yourpass@localhost:<rpc-port>" -e REPORT_SERVICES=tcp://example.com:50001 electrumx`
 # for a clean shutdown, send TERM signal to the running container eg.: `docker kill --signal="TERM" CONTAINER_ID`
